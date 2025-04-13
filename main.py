@@ -198,7 +198,14 @@ class GameOfLifeApp:
 
 def main():
     """Main function to run the Game of Life."""
-    rows, cols = 20, 20  # Example grid size
+    try:
+        print("Specify the size of the grid:")
+        rows = int(input("Enter the number of rows: "))
+        cols = int(input("Enter the number of columns: "))
+    except ValueError:
+        print("Invalid input. Please enter integers for rows and columns.")
+        sys.exit(1)
+
     cell_size = 20  # Size of each cell in pixels
     grid = [[0 for _ in range(cols)] for _ in range(rows)]
     print("Draw your initial pattern in the window. Click 'Start Simulation' when done.")
